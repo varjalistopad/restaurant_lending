@@ -2,24 +2,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language translations
     const translations = {
         it: {
-            // Main content
-            "main_title": "Eventi di Settembre",
-            "subtitle": "Scopri i migliori eventi gastronomici della stagione",
+            "main_title": "Eventi Gastronomici",
+            "subtitle": "Scopri i migliori eventi della stagione",
             "event1_title": "Festival della Cucina Creativa",
+            "event1_period": "Per 3 settimane",
             "event1_desc": "Chef stellati presenteranno piatti innovativi che rivoluzioneranno la tua concezione del gusto.",
             "event1_location": "📍 Via Roma, 15",
             "event1_time": "🕒 19:00-23:00",
             "event2_title": "Festa della Pizza Napoletana",
+            "event2_period": "Quest'estate",
             "event2_desc": "Autentica pizza napoletana cotta in forni a legna da maestri pizzaioli certificati.",
             "event2_location": "📍 Via Dante, 72",
             "event2_time": "🕒 18:00-24:00",
             "event3_title": "Degustazione Vini Toscani",
+            "event3_period": "Quest'autunno",
             "event3_desc": "I migliori vini della Toscana selezionati dall'enologo Marco Rossi.",
             "event3_location": "📍 Via Milano, 8",
             "event3_time": "🕒 20:00-22:30",
             "book_button": "Prenota Posto",
-            
-            // Footer
             "contacts_title": "Contatti",
             "language_title": "Lingua",
             "current_lang": "Italiano",
@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             "instagram": "Instagram",
             "facebook": "Facebook",
             "copyright": "© 2023 Eventi Gastronomici. Tutti i diritti riservati.",
-            
-            // Booking form
             "form_name": "Nome Completo",
             "form_email": "Email",
             "form_date": "Seleziona Data",
@@ -39,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             "guest4": "4 persone",
             "guest5": "5+ persone",
             "form_submit": "Conferma Prenotazione",
-            
-            // Popups
             "contact_popup_title": "Contattaci",
             "contact_popup_text": "Per ulteriori informazioni, chiamaci o inviaci un'email:",
             "phone_label": "Telefono:",
@@ -50,33 +46,31 @@ document.addEventListener('DOMContentLoaded', function() {
             "close_button": "Chiudi"
         },
         en: {
-            // Main content
-            "main_title": "September Food Events",
-            "subtitle": "Discover the best gastronomic events of the season",
+            "main_title": "Gastronomic Events",
+            "subtitle": "Discover the best events of the season",
             "event1_title": "Creative Cuisine Festival",
+            "event1_period": "For 3 weeks",
             "event1_desc": "Michelin-starred chefs will present innovative dishes that will revolutionize your taste perception.",
             "event1_location": "📍 Via Roma, 15",
             "event1_time": "🕒 7:00-11:00 PM",
             "event2_title": "Neapolitan Pizza Festival",
+            "event2_period": "This summer",
             "event2_desc": "Authentic Neapolitan pizza cooked in wood-fired ovens by certified master pizzaiolos.",
             "event2_location": "📍 Via Dante, 72",
             "event2_time": "🕒 6:00 PM-12:00 AM",
             "event3_title": "Tuscan Wine Tasting",
+            "event3_period": "This autumn",
             "event3_desc": "The best Tuscan wines selected by enologist Marco Rossi.",
             "event3_location": "📍 Via Milano, 8",
             "event3_time": "🕒 8:00-10:30 PM",
             "book_button": "Book Now",
-            
-            // Footer
             "contacts_title": "Contacts",
             "language_title": "Language",
             "current_lang": "English",
             "follow_title": "Follow Us",
             "instagram": "Instagram",
             "facebook": "Facebook",
-            "copyright": "© 2023 Food Events. All rights reserved.",
-            
-            // Booking form
+            "copyright": "© 2023 Gastronomic Events. All rights reserved.",
             "form_name": "Full Name",
             "form_email": "Email",
             "form_date": "Select Date",
@@ -87,8 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             "guest4": "4 people",
             "guest5": "5+ people",
             "form_submit": "Confirm Booking",
-            
-            // Popups
             "contact_popup_title": "Contact Us",
             "contact_popup_text": "For more information, call us or send us an email:",
             "phone_label": "Phone:",
