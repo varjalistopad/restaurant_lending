@@ -147,6 +147,13 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     margin-bottom: 30px;
+    justify-items: center;
+    text-align: center;
+}
+
+.contact-info, .social-links, .language-switcher {
+    width: 100%;
+    max-width: 250px;
 }
 
 .contact-info h3, .social-links h3, .language-switcher h3 {
@@ -155,7 +162,7 @@ body {
     font-size: 1.3rem;
 }
 
-.contact-info a, .social-icon {
+.contact-info a, .social-icon, .contact-link {
     color: var(--accent-color);
     text-decoration: none;
     display: block;
@@ -163,29 +170,64 @@ body {
     transition: color 0.3s ease;
 }
 
-.contact-info a:hover, .social-icon:hover {
+.contact-info a:hover, .social-icon:hover, .contact-link:hover {
     color: white;
 }
 
+/* Language Dropdown Styles */
 .language-switcher {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.language-btn {
-    background: none;
-    border: 1px solid var(--accent-color);
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-dropbtn {
+    background: transparent;
+    border: none;
     color: var(--accent-color);
-    padding: 8px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
+    padding: 5px 10px;
     transition: all 0.3s ease;
 }
 
-.language-btn:hover, .language-btn.active {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
+.language-dropbtn:hover {
+    color: white;
+}
+
+.language-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark-color);
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.language-dropdown-content a {
+    color: var(--accent-color);
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.language-dropdown-content a:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.language-dropdown:hover .language-dropdown-content {
+    display: block;
 }
 
 .copyright {
@@ -258,6 +300,42 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+}
+
+/* Calendar Styles */
+.datepicker {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.datepicker:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.flatpickr-calendar {
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.flatpickr-day.selected, .flatpickr-day.selected:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.flatpickr-day.today {
+    border-color: var(--accent-color);
+}
+
+.flatpickr-day.today:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .submit-button {

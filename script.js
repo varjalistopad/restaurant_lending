@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Footer
             "contacts_title": "Contatti",
             "language_title": "Lingua",
+            "current_lang": "Italiano",
             "follow_title": "Seguici",
             "instagram": "Instagram",
             "facebook": "Facebook",
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Booking form
             "form_name": "Nome Completo",
             "form_email": "Email",
+            "form_date": "Seleziona Data",
             "form_guests": "Numero di Persone",
             "guest1": "1 persona",
             "guest2": "2 persone",
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Footer
             "contacts_title": "Contacts",
             "language_title": "Language",
+            "current_lang": "English",
             "follow_title": "Follow Us",
             "instagram": "Instagram",
             "facebook": "Facebook",
@@ -76,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Booking form
             "form_name": "Full Name",
             "form_email": "Email",
+            "form_date": "Select Date",
             "form_guests": "Number of Guests",
             "guest1": "1 person",
             "guest2": "2 people",
@@ -95,9 +99,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Initialize calendar
+    const datepicker = flatpickr("#event-date", {
+        locale: "it",
+        minDate: "today",
+        dateFormat: "d F Y",
+        disable: [
+            function(date) {
+                return true; // Initially disable all dates
+            }
+        ]
+    });
+
     // Language switcher
     let currentLang = 'it';
-    const langButtons = document.querySelectorAll('.language-btn');
+    const langButtons = document.querySelectorAll('.language-btn, .language-dropdown-content a');
     
     function changeLanguage(lang) {
         currentLang = lang;
@@ -105,18 +121,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = element.getAttribute('data-i18n');
             if (translations[lang][key]) {
                 element.textContent = translations[lang][key];
+                
+                // Update placeholder for datepicker
+                if (key === "form_date") {
+                    datepicker.set("placeholder", translations[lang][key]);
+                }
             }
         });
         
-        // Update active button
-        langButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
+        // Update current language button text
+        document.querySelector('.language-dropbtn').textContent = translations[lang]["current_lang"];
+        
+        // Update calendar locale
+        datepicker.set('locale', lang);
     }
     
     langButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            changeLanguage(this.dataset.lang);
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.dataset.lang;
+            if (lang) {
+                changeLanguage(lang);
+            }
         });
     });
 
@@ -125,19 +151,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactModal = document.getElementById('contactModal');
     const socialModal = document.getElementById('socialModal');
     const bookingButtons = document.querySelectorAll('.cta-button');
-    const contactLinks = document.querySelectorAll('.contact-info a[href^="tel"], .contact-info a[href^="mailto"]');
-    const socialLinks = document.querySelectorAll('.social-links a');
+    const contactLinks = document.querySelectorAll('.contact-link');
+    const socialLinks = document.querySelectorAll('.social-icon');
     const closeButtons = document.querySelectorAll('.close-button, .close-popup-btn');
     
-    // Open booking modal
+    // Open booking modal with event-specific dates
     bookingButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
+        button.addEventListener('click', function() {
+            const eventDates = this.dataset.dates.split(',');
+            
+            // Update calendar with available dates for this event
+            datepicker.set('disable', [
+                function(date) {
+                    const dateStr = date.getFullYear() + "-" + 
+                                  String(date.getMonth() + 1).padStart(2, '0') + "-" + 
+                                  String(date.getDate()).padStart(2, '0');
+                    return !eventDates.includes(dateStr);
+                }
+            ]);
+            
+            // Clear any previously selected date
+            datepicker.clear();
+            
             const eventName = this.parentElement.querySelector('h2').textContent;
             document.getElementById('modalTitle').textContent = 
                 currentLang === 'it' 
                     ? `Prenotazione: ${eventName}` 
                     : `Booking: ${eventName}`;
+            
             bookingModal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         });
@@ -187,24 +228,34 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const date = document.getElementById('event-date').value;
         const guests = document.getElementById('guests').value;
+        
+        if (!date) {
+            alert(currentLang === 'it' 
+                ? "Per favore seleziona una data" 
+                : "Please select a date");
+            return;
+        }
         
         // Here you would typically send data to a server
         console.log('Booking submitted:', {
             name: name,
             email: email,
+            date: date,
             guests: guests
         });
         
         // Show success message
         alert(
             currentLang === 'it'
-                ? `Grazie ${name}! La tua prenotazione per ${guests} persone è stata registrata. Ti abbiamo inviato una conferma all'email ${email}`
-                : `Thank you ${name}! Your booking for ${guests} people has been registered. We've sent a confirmation to ${email}`
+                ? `Grazie ${name}! La tua prenotazione per ${guests} persone il ${date} è stata registrata. Ti abbiamo inviato una conferma all'email ${email}`
+                : `Thank you ${name}! Your booking for ${guests} people on ${date} has been registered. We've sent a confirmation to ${email}`
         );
         
         // Reset form and close modal
         this.reset();
+        datepicker.clear();
         bookingModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     });

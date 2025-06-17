@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventi Gastronomici | Food Events</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
                         <span class="location" data-i18n="event1_location">📍 Via Roma, 15</span>
                         <span class="time" data-i18n="event1_time">🕒 19:00-23:00</span>
                     </div>
-                    <button class="cta-button" data-event="cucina-creativa" data-i18n="book_button">Prenota Posto</button>
+                    <button class="cta-button" data-event="cucina-creativa" data-dates="2023-09-18,2023-09-20,2023-09-22" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
 
@@ -45,7 +46,7 @@
                         <span class="location" data-i18n="event2_location">📍 Via Dante, 72</span>
                         <span class="time" data-i18n="event2_time">🕒 18:00-24:00</span>
                     </div>
-                    <button class="cta-button" data-event="pizza-napoletana" data-i18n="book_button">Prenota Posto</button>
+                    <button class="cta-button" data-event="pizza-napoletana" data-dates="2023-09-25,2023-09-27,2023-09-29" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
 
@@ -61,7 +62,7 @@
                         <span class="location" data-i18n="event3_location">📍 Via Milano, 8</span>
                         <span class="time" data-i18n="event3_time">🕒 20:00-22:30</span>
                     </div>
-                    <button class="cta-button" data-event="vini-toscani" data-i18n="book_button">Prenota Posto</button>
+                    <button class="cta-button" data-event="vini-toscani" data-dates="2023-09-30,2023-10-02,2023-10-04" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
         </main>
@@ -70,13 +71,18 @@
             <div class="footer-content">
                 <div class="contact-info">
                     <h3 data-i18n="contacts_title">Contatti</h3>
-                    <p>📞 <a href="tel:+390612345678">+39 06 12345678</a></p>
-                    <p>✉️ <a href="mailto:info@eventigastronomici.it">info@eventigastronomici.it</a></p>
+                    <p>📞 <a href="tel:+390612345678" class="contact-link">+39 06 12345678</a></p>
+                    <p>✉️ <a href="mailto:info@eventigastronomici.it" class="contact-link">info@eventigastronomici.it</a></p>
                 </div>
                 <div class="language-switcher">
-                    <h3 data-i18n="language_title">Lingua / Language</h3>
-                    <button class="language-btn" data-lang="it">Italiano</button>
-                    <button class="language-btn" data-lang="en">English</button>
+                    <h3 data-i18n="language_title">Language</h3>
+                    <div class="language-dropdown">
+                        <button class="language-dropbtn" data-i18n="current_lang">Italiano</button>
+                        <div class="language-dropdown-content">
+                            <a href="#" data-lang="it">Italiano</a>
+                            <a href="#" data-lang="en">English</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="social-links">
                     <h3 data-i18n="follow_title">Seguici</h3>
@@ -105,6 +111,10 @@
                     <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
+                    <label for="event-date" data-i18n="form_date">Seleziona Data</label>
+                    <input type="text" id="event-date" class="datepicker" placeholder="Scegli una data" readonly>
+                </div>
+                <div class="form-group">
                     <label for="guests" data-i18n="form_guests">Numero di Persone</label>
                     <select id="guests" required>
                         <option value="1" data-i18n="guest1">1 persona</option>
@@ -126,8 +136,8 @@
             <h2 data-i18n="contact_popup_title">Contattaci</h2>
             <p data-i18n="contact_popup_text">Per ulteriori informazioni, chiamaci o inviaci un'email:</p>
             <div class="contact-popup-info">
-                <p><strong data-i18n="phone_label">Telefono:</strong> <a href="tel:+390612345678">+39 06 12345678</a></p>
-                <p><strong data-i18n="email_label">Email:</strong> <a href="mailto:info@eventigastronomici.it">info@eventigastronomici.it</a></p>
+                <p><strong data-i18n="phone_label">Telefono:</strong> <a href="tel:+390612345678" class="contact-link">+39 06 12345678</a></p>
+                <p><strong data-i18n="email_label">Email:</strong> <a href="mailto:info@eventigastronomici.it" class="contact-link">info@eventigastronomici.it</a></p>
             </div>
             <button class="close-popup-btn" data-i18n="close_button">Chiudi</button>
         </div>
@@ -147,6 +157,8 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/it.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
