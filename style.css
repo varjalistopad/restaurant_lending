@@ -149,7 +149,7 @@ body {
     margin-bottom: 30px;
 }
 
-.contact-info h3, .social-links h3 {
+.contact-info h3, .social-links h3, .language-switcher h3 {
     font-family: 'Playfair Display', serif;
     margin-bottom: 15px;
     font-size: 1.3rem;
@@ -165,6 +165,27 @@ body {
 
 .contact-info a:hover, .social-icon:hover {
     color: white;
+}
+
+.language-switcher {
+    display: flex;
+    flex-direction: column;
+}
+
+.language-btn {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover, .language-btn.active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
 }
 
 .copyright {
@@ -258,6 +279,45 @@ body {
     background-color: var(--dark-color);
 }
 
+.contact-popup-info, .social-popup-links {
+    margin: 20px 0;
+}
+
+.contact-popup-info p, .social-popup-links a {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.social-popup-link {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.social-popup-link:hover {
+    background-color: var(--dark-color);
+}
+
+.close-popup-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.close-popup-btn:hover {
+    background-color: var(--dark-color);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content h1 {
@@ -290,5 +350,11 @@ body {
     
     .main-content {
         grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+        width: 90%;
     }
 }

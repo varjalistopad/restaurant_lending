@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventi Gastronomici di Settembre</title>
+    <title>Eventi Gastronomici | Food Events</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,8 +11,8 @@
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <h1>Eventi di Settembre</h1>
-                <p class="subtitle">Scopri i migliori eventi gastronomici della stagione</p>
+                <h1 data-i18n="main_title">Eventi di Settembre</h1>
+                <p class="subtitle" data-i18n="subtitle">Scopri i migliori eventi gastronomici della stagione</p>
             </div>
         </header>
 
@@ -23,13 +23,13 @@
                     <span class="month">SET</span>
                 </div>
                 <div class="event-info">
-                    <h2>Festival della Cucina Creativa</h2>
-                    <p class="event-description">Chef stellati presenteranno piatti innovativi che rivoluzioneranno la tua concezione del gusto.</p>
+                    <h2 data-i18n="event1_title">Festival della Cucina Creativa</h2>
+                    <p class="event-description" data-i18n="event1_desc">Chef stellati presenteranno piatti innovativi che rivoluzioneranno la tua concezione del gusto.</p>
                     <div class="event-meta">
-                        <span class="location">📍 Via Roma, 15</span>
-                        <span class="time">🕒 19:00-23:00</span>
+                        <span class="location" data-i18n="event1_location">📍 Via Roma, 15</span>
+                        <span class="time" data-i18n="event1_time">🕒 19:00-23:00</span>
                     </div>
-                    <button class="cta-button" data-event="cucina-creativa">Prenota Posto</button>
+                    <button class="cta-button" data-event="cucina-creativa" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
 
@@ -39,13 +39,13 @@
                     <span class="month">SET</span>
                 </div>
                 <div class="event-info">
-                    <h2>Festa della Pizza Napoletana</h2>
-                    <p class="event-description">Autentica pizza napoletana cotta in forni a legna da maestri pizzaioli certificati.</p>
+                    <h2 data-i18n="event2_title">Festa della Pizza Napoletana</h2>
+                    <p class="event-description" data-i18n="event2_desc">Autentica pizza napoletana cotta in forni a legna da maestri pizzaioli certificati.</p>
                     <div class="event-meta">
-                        <span class="location">📍 Via Dante, 72</span>
-                        <span class="time">🕒 18:00-24:00</span>
+                        <span class="location" data-i18n="event2_location">📍 Via Dante, 72</span>
+                        <span class="time" data-i18n="event2_time">🕒 18:00-24:00</span>
                     </div>
-                    <button class="cta-button" data-event="pizza-napoletana">Prenota Posto</button>
+                    <button class="cta-button" data-event="pizza-napoletana" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
 
@@ -55,13 +55,13 @@
                     <span class="month">SET</span>
                 </div>
                 <div class="event-info">
-                    <h2>Degustazione Vini Toscani</h2>
-                    <p class="event-description">I migliori vini della Toscana selezionati dall'enologo Marco Rossi.</p>
+                    <h2 data-i18n="event3_title">Degustazione Vini Toscani</h2>
+                    <p class="event-description" data-i18n="event3_desc">I migliori vini della Toscana selezionati dall'enologo Marco Rossi.</p>
                     <div class="event-meta">
-                        <span class="location">📍 Via Milano, 8</span>
-                        <span class="time">🕒 20:00-22:30</span>
+                        <span class="location" data-i18n="event3_location">📍 Via Milano, 8</span>
+                        <span class="time" data-i18n="event3_time">🕒 20:00-22:30</span>
                     </div>
-                    <button class="cta-button" data-event="vini-toscani">Prenota Posto</button>
+                    <button class="cta-button" data-event="vini-toscani" data-i18n="book_button">Prenota Posto</button>
                 </div>
             </section>
         </main>
@@ -69,47 +69,81 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="contact-info">
-                    <h3>Contatti</h3>
+                    <h3 data-i18n="contacts_title">Contatti</h3>
                     <p>📞 <a href="tel:+390612345678">+39 06 12345678</a></p>
                     <p>✉️ <a href="mailto:info@eventigastronomici.it">info@eventigastronomici.it</a></p>
                 </div>
+                <div class="language-switcher">
+                    <h3 data-i18n="language_title">Lingua / Language</h3>
+                    <button class="language-btn" data-lang="it">Italiano</button>
+                    <button class="language-btn" data-lang="en">English</button>
+                </div>
                 <div class="social-links">
-                    <h3>Seguici</h3>
-                    <a href="#" class="social-icon">Instagram</a>
-                    <a href="#" class="social-icon">Facebook</a>
+                    <h3 data-i18n="follow_title">Seguici</h3>
+                    <a href="#" class="social-icon" data-i18n="instagram">Instagram</a>
+                    <a href="#" class="social-icon" data-i18n="facebook">Facebook</a>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2023 Eventi Gastronomici. Tutti i diritti riservati.</p>
+                <p data-i18n="copyright">© 2023 Eventi Gastronomici. Tutti i diritti riservati.</p>
             </div>
         </footer>
     </div>
 
+    <!-- Booking Modal -->
     <div class="modal" id="bookingModal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2 id="modalTitle">Prenotazione Evento</h2>
             <form id="bookingForm">
                 <div class="form-group">
-                    <label for="name">Nome Completo</label>
+                    <label for="name" data-i18n="form_name">Nome Completo</label>
                     <input type="text" id="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" data-i18n="form_email">Email</label>
                     <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="guests">Numero di Persone</label>
+                    <label for="guests" data-i18n="form_guests">Numero di Persone</label>
                     <select id="guests" required>
-                        <option value="1">1 persona</option>
-                        <option value="2">2 persone</option>
-                        <option value="3">3 persone</option>
-                        <option value="4">4 persone</option>
-                        <option value="5+">5+ persone</option>
+                        <option value="1" data-i18n="guest1">1 persona</option>
+                        <option value="2" data-i18n="guest2">2 persone</option>
+                        <option value="3" data-i18n="guest3">3 persone</option>
+                        <option value="4" data-i18n="guest4">4 persone</option>
+                        <option value="5+" data-i18n="guest5">5+ persone</option>
                     </select>
                 </div>
-                <button type="submit" class="submit-button">Conferma Prenotazione</button>
+                <button type="submit" class="submit-button" data-i18n="form_submit">Conferma Prenotazione</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Contact Popup -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-i18n="contact_popup_title">Contattaci</h2>
+            <p data-i18n="contact_popup_text">Per ulteriori informazioni, chiamaci o inviaci un'email:</p>
+            <div class="contact-popup-info">
+                <p><strong data-i18n="phone_label">Telefono:</strong> <a href="tel:+390612345678">+39 06 12345678</a></p>
+                <p><strong data-i18n="email_label">Email:</strong> <a href="mailto:info@eventigastronomici.it">info@eventigastronomici.it</a></p>
+            </div>
+            <button class="close-popup-btn" data-i18n="close_button">Chiudi</button>
+        </div>
+    </div>
+
+    <!-- Social Popup -->
+    <div class="modal" id="socialModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-i18n="social_popup_title">Seguici sui Social</h2>
+            <p data-i18n="social_popup_text">Resta aggiornato sui nostri eventi:</p>
+            <div class="social-popup-links">
+                <a href="#" class="social-popup-link" data-i18n="instagram">Instagram</a>
+                <a href="#" class="social-popup-link" data-i18n="facebook">Facebook</a>
+            </div>
+            <button class="close-popup-btn" data-i18n="close_button">Chiudi</button>
         </div>
     </div>
 
